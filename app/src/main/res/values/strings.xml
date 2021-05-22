@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">QuizActivity</string>
+    <string name="question_text">QuizActivity</string>
+    <string name="button1">True</string>
+    <string name="button2">False</string>
+    <string name="button3">Next</string>
+    <string name="button4">Prev</string>
+    <string name="correct_toast">Correct!</string>
+    <string name="incorrect_toast">Incorrect!</string>
+    <string name="question1">Popa is larger than pisyn.</string>
+    <string name="question2">Pisyn is larger than popa.</string>
+    <string name="question3">Popa is larger than popa.</string>
+</resources>
