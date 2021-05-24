@@ -3,6 +3,7 @@ package com.example.quizactivity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.util.Log;
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton mNextButton;
     private ImageButton mPrevButton;
     private TextView mQuestionTextView;
+    private Button mCheatButton;
 
     private static final String TAG = "QuizActivity";
     private static final String KEY_INDEX = "index";
@@ -49,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         mFalseButton = findViewById(R.id.button2);
         mNextButton = findViewById(R.id.button3);
         mPrevButton = findViewById(R.id.button4);
+        mCheatButton = findViewById(R.id.button5);
 
         mTrueButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,6 +91,15 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 mCurrentIndex = (mCurrentIndex - 1) % mQuestionBank.length;
                 updateQuestion();
+            }
+        });
+
+        mCheatButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean answerIsTrue = mQuestionBank[mCurrentIndex].isAnswerTrue();
+                Intent intent = CheatActivity.newIntent(MainActivity.this, answerIsTrue);
+                startActivity(intent);
             }
         });
 
